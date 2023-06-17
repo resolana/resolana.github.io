@@ -35,7 +35,7 @@ function draw() {
   suop++;
   borrar++;
   borrar_all++;
-  hue = ++hue % 360;
+  hue = ++hue % 255;
   saturation = ++saturation % 50;
   saturation1 = ++saturation1 % 99;
 
@@ -69,18 +69,18 @@ function draw() {
     hue = 0;
   }
 
-  if (borrar >= 2000){
-    splash = "";
-    borrar = 0;
-    ruidoX4 = 0;
-    ruidoY4 = 0;
-    ruidoC4 = 0;
-  }
+//   if (borrar >= 2000){
+//     splash = "";
+//     borrar = 0;
+//     ruidoX4 = 0;
+//     ruidoY4 = 0;
+//     ruidoC4 = 0;
+//   }
 
 
-  if (borrar_all >= 4000){
-    denuez();
-}
+//   if (borrar_all >= 4000){
+//     denuez();
+// }
 
 function denuez() {
     location.reload();
@@ -102,11 +102,11 @@ function dialogue(splash) {
   //strokeWeight(3);
   noStroke();
   //  fill(0, 0, hue*4);
-  // fill(313, hue%99, 99);
-  fill(hue, 62, 99);
+   fill(313, hue%99, 99);
+  //fill(hue, 62, 99);
 
   textSize(fontsize = posC4);
-  text(splash, posX4, posY4, 800, 250);
+  text(splash, posX4, posY4, 800, 800);
 
 }
 
@@ -140,11 +140,12 @@ function mouseDragged() {
   if ((y > windowHeight) || (y < 0)) {
     yspeed = yspeed * -1;
   }
-  //stroke(0, 100);
-  //strokeWeight(3);
+  stroke(0, 100);
+  strokeWeight(1);
   //fill(hue, 0, 0);
   //fill(hue*2, 4000, 4000);
-  fill(0, 0, saturation1);
+  //fill(0, 0, saturation1);
+fill(hue, 62, 99);
 
   socket.emit('tecla', splash);
 
@@ -152,7 +153,7 @@ function mouseDragged() {
 
   //for (var x = 100; x < windowWidth; x += 4000) {
 	//translate(posX4, y);
-  	text(splash, posX4, y, 300, 400);
+  	text(splash, posX4, y, 600, 600);
 	//}
 }
 
